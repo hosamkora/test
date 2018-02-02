@@ -1,0 +1,12 @@
+@(studentFrom:Form[Student])
+@import helper._
+
+@StudentControllerViews.base_view("Add Student"){
+        @helper.form(action = helper.CSRF(routes.StudentsController.saveStudent())){
+            @helper.inputText(studentFrom("id"))
+            @helper.inputText(studentFrom("name"))
+            @helper.inputText(studentFrom("age"))
+
+            <input type="submit" value="Add Student">
+        }
+}

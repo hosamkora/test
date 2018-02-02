@@ -1,0 +1,15 @@
+@(students: Set[Student])
+@StudentControllerViews.base_view("Students") {
+
+    <h1>All Students</h1>
+
+    @for(student <- students) {
+        @if(student != null) {
+            <a href=@routes.StudentsController.showStudentDetails(student.id)>
+                <h2>Student name : @student.name</h2>
+            </a>
+
+        }
+    }
+    <a href=@routes.StudentsController.addStudent()>Add New Student</a>
+}
