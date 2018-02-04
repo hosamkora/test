@@ -1,21 +1,13 @@
 @(studentFrom:Form[Student])
 @import helper._
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Edit Student</title>
-    </head>
-    <body>
+@StudentControllerViews.base_view("Edit Student"){
     @helper.form(action = helper.CSRF(routes.StudentsController.updateStudent())){
-        @helper.inputText(studentFrom("id"))
-        @helper.inputText(studentFrom("name"))
-        @helper.inputText(studentFrom("age"))
+        @helper.inputText(studentFrom("id"),'class->"form-control")
+        @helper.inputText(studentFrom("name"),'class->"form-control")
+        @helper.inputText(studentFrom("age"),'class->"form-control")
 
         <input type="submit" value="Add Student">
-        }
-    </body>
-</html>
+        <button type="submit" class="btn btn-primary"></button>
+    }
+}
