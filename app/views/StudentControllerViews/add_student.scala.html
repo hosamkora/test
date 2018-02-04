@@ -3,9 +3,11 @@
 
 @StudentControllerViews.base_view("Add Student"){
         @helper.form(action = helper.CSRF(routes.StudentsController.saveStudent())){
-            @helper.inputText(studentFrom("id"))
-            @helper.inputText(studentFrom("name"))
-            @helper.inputText(studentFrom("age"))
+@*            @helper.inputText(studentFrom("id"),'class->"form-control")*@
+@*            @helper.inputText(studentFrom("name"),'class->"form-control")*@
+@*           @helper.inputText(studentFrom("age"),'class->"form-control")*@
+
+            @partials._student_form(studentFrom)
 
             <input type="submit" value="Add Student">
         }
